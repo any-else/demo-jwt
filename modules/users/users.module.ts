@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Module, forwardRef } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { UsersController } from './users.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
@@ -7,7 +7,10 @@ import { JwtModule } from '@nestjs/jwt';
 import { AuthModule } from '../../auth/auth.module';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([UserEntity]), AuthModule],
+  imports: [
+    TypeOrmModule.forFeature([UserEntity]),
+    forwardRef(() => AuthModule),
+  ],
   controllers: [UsersController],
   providers: [UsersService],
   exports: [UsersService],

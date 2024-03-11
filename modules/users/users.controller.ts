@@ -7,7 +7,7 @@ export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
   @Get('/list')
-  @UseGuards(AuthGuard)
+  @UseGuards(AuthGuard) /** kiểm tra xem có tài khoản hay ch*/
   async getAll() {
     return this.usersService.getAll();
   }

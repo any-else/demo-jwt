@@ -60,7 +60,7 @@ export class AuthService {
     });
   }
 
-  async verifyAccessToken(token) {
+  verifyAccessToken(token) {
     return this.jwtService.verify(token, {
       secret: 'token',
     });
