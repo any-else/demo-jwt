@@ -30,4 +30,8 @@ export class UsersService {
   getAll() {
     return this.usersRepository.find();
   }
+
+  getUserById(id: number) {
+    return this.usersRepository.findOneBy({ user_id: id });
+  }
 }

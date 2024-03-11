@@ -49,6 +49,7 @@ export class AuthService {
       token: await this.generateAccessToken({
         email: user.email,
         id: user.user_id,
+        roles: user.role,
       }),
     };
   }
